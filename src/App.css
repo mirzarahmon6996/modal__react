@@ -66,3 +66,53 @@
   transform: scale(1.1);
   transition: 0.3s;
 }
+.todo {
+  width: 100%;
+  max-width: 1140px;
+  margin: 100px auto;
+}
+.todo__block {
+  margin: 0 auto;
+  width: 400px;
+}
+.todo__wrapper {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.todo input {
+  padding: 10px;
+  width: 220px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.todo__block li {
+  list-style: none;
+  display: flex;
+  width: 300px;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+}
+.todo button {
+  padding: 10px 16px;
+  margin-left: 10px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: transparent;
+}
+#btn__revome {
+  border: none;
+  color: red;
+  font-weight: 900;
+}

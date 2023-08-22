@@ -15,6 +15,27 @@ function App() {
 
   console.log(modal);
 
+  const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleAddTodo = (e) => {
+    e.preventDefault();
+    if (inputValue.trim() !== "") {
+      setTodos([...todos, inputValue]);
+      setInputValue("");
+    }
+  };
+
+  const handleRemoveTodo = (index) => {
+    const updatedTodos = [...todos];
+    updatedTodos.splice(index, 1);
+    setTodos(updatedTodos);
+  };
+
   return (
     <>
       <div className={modal ? "active" : "actives"}>
@@ -39,6 +60,35 @@ function App() {
       <button className="btn" onClick={openModal}>
         Click
       </button>
+
+      <div className="todo">
+        <div className="todo__block">
+          <div className="todo__wrapper">
+            <form>
+              <input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                placeholder="Enter the text"
+              />
+              <button onClick={handleAddTodo}>Add Todo</button>
+            </form>
+          </div>
+          <ul>
+            {todos.map((todo, index) => (
+              <li key={index}>
+                {todo}
+                <button
+                  id="btn__revome"
+                  onClick={() => handleRemoveTodo(index)}
+                >
+                  X
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 }
