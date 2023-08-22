@@ -1,33 +1,20 @@
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
+
 function App() {
-  // const [name, setName] = useState("Sanjar");
-  // function changeName() {
-  //   if (name == "Sanjar") {
-  //     setName("Ulugbek");
-  //   } else {
-  //     setName("Sanjar");
-  //   }
-  // }
-
-  // const [rendem, setRendem] = useState(0);
-  // function changeRendem() {
-  //   setRendem(Math.floor(Math.random() * 100));
-  // }
-
-  // const [count, setCount] = useState(1);
-  // function RenderCount() {
-  //   setCount(count + 1);
-  // }
   const [modal, setModal] = useState(true);
-  function OpenModal() {
-    if (modal == true) {
-      setModal(false);
-    } else {
-      setModal(true);
-    }
+  const [closeBtn, setCloseBtn] = useState(true);
+
+  function openModal() {
+    setModal(!modal);
   }
+
+  function closeBtnModal() {
+    setModal(!closeBtn);
+  }
+
   console.log(modal);
+
   return (
     <>
       <div className={modal ? "active" : "actives"}>
@@ -43,8 +30,15 @@ function App() {
         tempore necessitatibus ratione mollitia commodi quaerat aliquam aperiam
         voluptas magnam omnis, molestiae at, tempora ullam, libero temporibus
         aspernatur a optio!
+        {closeBtn && (
+          <button className="btn__X" onClick={closeBtnModal}>
+            X
+          </button>
+        )}
       </div>
-      <button className="btn" onClick={OpenModal}>Click</button>
+      <button className="btn" onClick={openModal}>
+        Click
+      </button>
     </>
   );
 }
